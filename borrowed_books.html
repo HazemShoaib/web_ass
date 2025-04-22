@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Borrowed Books</title>
+  <meta charset="UTF-8">
+  <title>Book Details</title>
+  <link rel="stylesheet" href="style.css">
+  <title>Book Details</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f7f1;
+
+    }
+  </style>
+</head>
+<body>
+  <header id="navigation-bar">
+    <nav>
+        <a href="user_dashboard.html">Home</a>
+        <a href="book_details.html">Browse</a>
+        <a href="borrowed_books.html"><strong>My Books</strong></a>
+    </nav>
+    <search>
+        <form action="search_results.html" method="get">
+            <input type="text" name="query" placeholder="Search for books, authors, or genres...">
+            <button type="submit">Search</button>
+        </form>
+    </search>
+</header>
+<div class="box">
+  <h2>Borrowed Books</h2>
+  <ul class="book-list">
+    <li class="book-item">
+      <div class="book-title"><strong>The Great Gatsby</strong></div>
+      <div class="book-details">by F. Scott Fitzgerald • Category: Classic</div>
+      <div class="due-date">Due Date: May 10, 2025</div>
+    </li>
+  </ul>
+
+  <a href="book_details.html" class="return-button">← Return to Library</a>
+</div>
+</body>
+</html>

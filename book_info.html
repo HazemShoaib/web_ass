@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>"Book Name"</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header id="navigation-bar">
+            <nav>
+                <a href="user_dashboard.html">Home</a>
+                <a href="book_details.html">Browse</a>
+                <a href="borrowed_books.html">My Books</a>
+            </nav>
+            <search>
+                <form action="search_results.html" method="get">
+                    <input type="text" name="query" placeholder="Search for books, authors, or genres...">
+                    <button type="submit">Search</button>
+                </form>
+            </search>
+        </header>
+
+        <div class="book-info">
+            <div class="book-cover">
+                <img src="Harry_Potter.jpg" alt="Harry Potter and the Sorcerer's Stone">
+            </div>
+            <div class="book-meta">
+                <h1>Harry Potter and the Sorcerer's Stone</h1>
+                <p><strong>Author:</strong> J.K. Rowling</p>
+                <p><strong>Category:</strong> Fantasy</p>
+                <p><strong>Description:</strong> A young wizard's journey begins</p>
+                <div class="auth-buttons">
+                    <a href="#" class="buy-button">Buy Book</a>
+                    <a href="borrowed_books.html" class="borrow-button">Borrow Book</a>
+                </div>
+            </div>
+        </div>
+        <footer>
+            &copy; 2025 Online Library. All rights reserved.
+        </footer>
+    </body>
+</html>
