@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Book Details</title>
+        <link rel="stylesheet" href="/css/user-dashboard.css">
+    </head>
+    <body>
+        <div class="content">
+            <header id="navigation-bar">
+                <nav>
+                    <a href="/html/user_dashboard.html">Home</a>
+                    <a href="/html/book_details.html">Browse</a>
+                    <a href="/html/borrowed_books.html">My Books</a>
+                </nav>
+                <search>
+                    <form onsubmit="handleSearch(event)">
+                        <input type="text" id="searchInput" placeholder="Search for books or authors...">
+                        <button type="submit">Search</button>
+                    </form>
+                </search>
+            </header>
+    
+            <div class="book-info">
+                <div class="book-cover">
+                    <img id="bookImage" src="" alt="Book Cover">
+                </div>
+                <div class="book-meta" id="bookMeta">
+                    <h1 id="bookTitle">Loading book details...</h1>
+                    <!-- Details will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            &copy; 2025 Online Library. All rights reserved.
+        </footer>
+        
+        <script src="/js/book_info.js"></script>
+        <script src="/js/search.js"></script>
+    </body>
+</html>

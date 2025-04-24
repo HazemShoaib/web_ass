@@ -1,0 +1,105 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+    <link rel="stylesheet" href="/css/book_deatails.css">
+    <link rel="stylesheet" href="/css/user-dashboard.css">
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #fffdf5;
+        }
+    </style>  
+</head>
+<body>
+    <header id="navigation-bar">
+        <nav>
+            <a href="/html/user_dashboard.html">Home</a>
+            <a href="/html/book_details.html"><strong>Browse</strong></a>
+            <a href="/html/borrowed_books.html">My Books</a>
+        </nav>
+        <search>
+            <form onsubmit="handleSearch(event)">
+                <input type="text" id="searchInput" placeholder="Search for books or authors...">
+                <button type="submit">Search</button>
+            </form>
+        </search>
+    </header>
+
+    <div id="books-container">
+        <!-- Books will be loaded here by JavaScript -->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadBooks();
+            
+            function loadBooks() {
+                const books = JSON.parse(localStorage.getItem('books')) || [];
+                const container = document.getElementById('books-container');
+                container.innerHTML = ''; // Clear existing content
+                
+                books.forEach(book => {
+                    const article = document.createElement('article');
+                    article.className = 'book-card';
+                    const isAvailable = book.available !== false; // Default to true if not specified
+                    article.innerHTML = `
+                        <img src="${book.image}" alt="${book.name}" class="book-img">
+                        <div>
+                            <h1>${book.name}</h1>
+                            <p class="book-author"><strong>Author:</strong> ${book.author}</p>
+                            <p><strong>Category:</strong> ${book.category}</p>
+                            <p><strong>Description:</strong> ${book.description}</p>
+                            <p class="${isAvailable ? 'available' : 'unavailable'}">${isAvailable ? 'Available' : 'Unavailable'}</p>
+                            <div class="auth-buttons">
+                                <a href="#" class="btn borrow-button ${!isAvailable ? 'disabled' : ''}" 
+                                   data-book-id="${book.id}" 
+                                   ${!isAvailable ? 'style="pointer-events: none; opacity: 0.5;"' : ''}>
+                                   ${isAvailable ? 'Borrow Book' : 'Not Available'}
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(article);
+                });
+                
+                document.querySelectorAll('.borrow-button:not(.disabled)').forEach(button => {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const bookId = this.getAttribute('data-book-id');
+                        borrowBook(bookId);
+                    });
+                });
+            }
+            
+            function borrowBook(bookId) {
+                const books = JSON.parse(localStorage.getItem('books')) || [];
+                const book = books.find(b => b.id === bookId);
+                
+                if (book && book.available !== false) {
+                    let borrowedBooks = JSON.parse(localStorage.getItem('borrowedBooks')) || [];
+                    borrowedBooks.push({
+                        id: book.id,
+                        title: book.name,
+                        author: book.author,
+                        category: book.category,
+                        dueDate: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toLocaleDateString()
+                    });
+                    localStorage.setItem('borrowedBooks', JSON.stringify(borrowedBooks));
+                    
+                    // Update book availability
+                    book.available = false;
+                    localStorage.setItem('books', JSON.stringify(books));
+                    
+                    alert(`You've borrowed "${book.name}"`);
+                    window.location.href = '/html/borrowed_books.html';
+                } else {
+                    alert('This book is not available for borrowing.');
+                }
+            }
+        });
+    </script>
+    <script src="/js/search.js"></script>
+</body>
+</html>

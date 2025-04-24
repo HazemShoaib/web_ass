@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Borrowed Books</title>
+  <link rel="stylesheet" href="/css/borrowed_books.css">
+  <link rel="stylesheet" href="/css/user-dashboard.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f7f1;
+    }
+  </style>
+</head>
+<body>
+  <header id="navigation-bar">
+    <nav>
+        <a href="/html/user_dashboard.html">Home</a>
+        <a href="/html/book_details.html">Browse</a>
+        <a href="/html/borrowed_books.html"><strong>My Books</strong></a>
+    </nav>
+    <search>
+      <form onsubmit="handleSearch(event)">
+          <input type="text" id="searchInput" placeholder="Search for books or authors...">
+          <button type="submit">Search</button>
+      </form>
+  </search>
+  </header>
+  <div class="box">
+    <h2>Borrowed Books</h2>
+    <ul class="book-list" id="borrowedBooksList">
+      <!-- Borrowed books will be loaded here -->
+    </ul>
+    <a href="/html/book_details.html" class="return-button">← Return to Library</a>
+  </div>
+  <script src="/js/borrowed_books.js"></script>
+</body>
+</html>
