@@ -10,13 +10,19 @@
         <div class="container">
             <form id="loginForm">
                 <h1>Login</h1>
-                <div>
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="password" required>
+                <div class="form-group">
+                    <div class = "input">
+                        <label for="username">Username: </label>
+                        <input type="text" id="password" name="username" required>
+                    </div>
+                    <br><br>
+                    <div class = "input">
+                        <label for="password">Password: </label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
                 </div>
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                <div>
+                <br>
+                <div class="form-group">
                     <div class="auth-buttons">
                         <a href="/html/admindash.html" class="btn login-button" id="loginA">Login as Admin</a>
                         <a href="/html/user_dashboard.html" class="btn login-button " id="loginU">Login as User</a>
