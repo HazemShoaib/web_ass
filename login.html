@@ -10,18 +10,18 @@
                 <h1>Login</h1>
                 <div>
                     <label for="username">Username:</label>
-                    <input type="text" id="username" name="password" required>
+                    <input type="text" id="username" name="username" required>
                 </div>
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" required>
                 <div>
                     <div class="auth-buttons">
-                        <a href="admindash.html" class="btn login-button" id="loginA">Login as Admin</a>
-                        <a href="user_dashboard.html" class="btn login-button " id="loginU">Login as User</a>
+                        <button type="submit" class="btn login-button" id="loginA">Login</button>
                     </div>
                 </div>
                 <p id="messageArea" class="message"></p>
             </form>
         </div>
+        <script type="module" src="login.js"></script>
     </body>
 </html>

@@ -1,7 +1,7 @@
 const users = [];
 const books = [];
-localStorage.setItem("users", JSON.stringify(users));
-localStorage.setItem("books", JSON.stringify(books));
+if (!localStorage.getItem ("users")) localStorage.setItem("users", JSON.stringify(users));
+if (!localStorage.getItem ("books"))localStorage.setItem("books", JSON.stringify(books));
 
 /*
 every row in users is an object, example of users :
@@ -50,7 +50,7 @@ function getUsers() {
 function getUser(username) {
     const users = getUsers();
 
-    const fuser = users.filter(user => user.username === username);
+    const fuser = users.find(user => user.username === username) || [];
     
     if(fuser) {
         console.log("retreived user: ", fuser);
@@ -89,3 +89,5 @@ function getUser(username) {
 
 //     return borrowed;
 // }
+
+export { addUser , deleteUser , getUsers , getUser};
