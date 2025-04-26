@@ -1,35 +1,27 @@
 <html>
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>login-Page</title>
-        <link rel ='stylesheet' href="/css/login.css">
+        <link rel ='stylesheet' href="/css/style.css">
 
     </head>
     <body>
         <div class="container">
             <form id="loginForm">
                 <h1>Login</h1>
-                <div class="form-group">
-                    <div class = "input">
-                        <label for="username">Username: </label>
-                        <input type="text" id="password" name="username" required>
-                    </div>
-                    <br><br>
-                    <div class = "input">
-                        <label for="password">Password: </label>
-                        <input type="password" id="password" name="password" required>
-                    </div>
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
                 </div>
-                <br>
-                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                <div>
                     <div class="auth-buttons">
-                        <a href="/html/admindash.html" class="btn login-button" id="loginA">Login as Admin</a>
-                        <a href="/html/user_dashboard.html" class="btn login-button " id="loginU">Login as User</a>
+                        <button type="submit" class="btn login-button" id="loginA">Login</button>
                     </div>
                 </div>
                 <p id="messageArea" class="message"></p>
             </form>
         </div>
+        <script type="module" src="/js/login.js"></script>
     </body>
 </html>
