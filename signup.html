@@ -3,6 +3,7 @@
     <head>
         <title>Sign Up!</title>
         <link rel="stylesheet" href="style.css">
+        
     </head>
     <body>
         <div class="container">
@@ -10,16 +11,16 @@
                 <h1>Sign Up</h1>
                 <div>
                     <label for="username">User name:</label>
-                    <input type ="text" id="username" name="password" required>
+                    <input type ="text" id="username" name="username" required>
                     </br>
                     <label for="userEmail">Email:  </label>
-                    <input type="password" id="userEmail" name="password" required>
+                    <input type="email" id="userEmail" name="email" required>
                     </br>
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" required>
                     </br>
-                    <label for="password">Password:</label>
-                    <input type="password" id="Cpassword" name="password" required>
+                    <label for="password">Re-Enter Password:</label>
+                    <input type="password" id="Cpassword" name="passwordconfirm" required>
                 </div>
                 <!-- The select element seems specific, keeping it for now -->
                 <div>
@@ -31,11 +32,13 @@
                 </div>
                 <div>
                     <div class="auth-buttons">
-                        <a href="login.html" class="btn signup-button">Sign Up</a>
+                        <button type="submit" class="btn signup-button" id="signupbtn">Sign Up</button>
                     </div>
                 </div>
                 <p id="messageArea" class="message"></p>
             </form>
         </div>
+        <script type="module" src="signup.js"></script>
+
     </body>
 </html>
